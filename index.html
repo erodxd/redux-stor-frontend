@@ -2,9 +2,10 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"></html> <!--<![endif]-->
 <html>
         <head>
+            <title>Redux Store</title>
           <!--Import Google Icon Font-->
           <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
           <!--Import materialize.css-->
@@ -16,6 +17,7 @@
         </head>
         
     <body>
+        <!---->
         <nav>
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo">Redux Store</a>
@@ -29,13 +31,14 @@
         <div class="carousel">
                 
         </div> 
-        
-        </script>
+        <!--JavaScript at end of body for optimized loading-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script>
-                var elems = document.querySelectorAll('.carousel');
-                var instances = M.Carousel.init(elems);
-        </script>                
+<!-- INTIALIZATION -->
+<!-- <script>
+var elem = document.querySelector('.carousel');
+var instance = M.Carousel.init(elem, options);
+</script> -->
+                     
     </body>
     <script src="src/app.js"></script>
     <script src="src/index.js"></script>
