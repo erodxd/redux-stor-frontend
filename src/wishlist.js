@@ -1,0 +1,3 @@
+class Wishlist {
+    constructor(data)
+}

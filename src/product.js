@@ -15,13 +15,14 @@ class Product {
       </h3>
     </li>`;
   }
+    renderUpdateForm() {
+      return `
+      <form`
+    }
+  static findById(id) {
+    return this.all.find(product => product.id === id);
+  }
 }
-//console.log('product loaded')
-
-
-// export function renderProductItem(){
-//   console.log('second function called')
-// }
 
 Product.all = [];
 
