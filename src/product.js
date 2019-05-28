@@ -5,16 +5,11 @@ class Product {
         this.categorie = data.categorie;
         this.price = data.price;
         this.size = data.size;
-        this.img_url = data.url;
+        this.url = data.url;
         Product.all.push(this);
     }
     renderProductItem() {
-      return  `<li>
-      <h3>${this.name}
-        <button data-id=${this.id}>edit</button>
-      </h3>
-    </li>`;
-    //return `<a class="carousel-item" href="#${this.id}!"><img src="${this.url}"</a>`
+    return `<a class="carousel-item" href="#${this.id}!"><img src="${this.url}"</a>`
   }
     renderUpdateForm() {
       return `
