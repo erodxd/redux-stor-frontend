@@ -1,10 +1,15 @@
-document.addEventListener('DOMContentLoaded', () => {
+//document.addEventListener('DOMContentLoaded', () => {
+  console.log('index rendered')
     // remember that the route our real backend would be 'http://localhost:3000/api/v1/products' whereas here we'll make the request to our json-server non-namespaced routes 
-    //import { renderProductItem } from 'product.js';
+    
 
-    const divTag = document.createElement('div')
-    divTag.className = 'product-list'
-    document.body.appendChild(divTag)
+    
+      const divTag = document.createElement('div')
+      divTag.className = 'products-list';
+      document.body.appendChild(divTag);
+    
+      const app = new App();
+      app.attachEventListeners(divTag);
     
 
     // createNoteHtml = (product) => {
@@ -15,14 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
     //   </li>`;
     // }
 
+    
+
     const endpoint = 'http://localhost:3000/api/v1/products';
     fetch(endpoint)
     .then(res => res.json())
     .then((products) => {
         products.forEach((product) => {
-          console.log(product)
+          //console.log(product)
           const newProduct = new Product(product)
-          console.log(product.id)
+          //console.log(product.id)
           //divTag.innerHTML += createNoteHtml(product)
           
           divTag.innerHTML += newProduct.renderProductItem();
@@ -39,4 +46,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
    //end of DOMContentLoaded 
-  });
+  //});

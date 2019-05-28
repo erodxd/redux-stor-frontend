@@ -16,7 +16,7 @@ class Product {
     </li>`;
   }
 }
-
+console.log('product loaded')
 
 
 // export function renderProductItem(){
