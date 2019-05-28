@@ -6,4 +6,4 @@ class App {
     }
 }
 
-console.log('app loaded')
+//console.log('app loaded')

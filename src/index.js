@@ -1,5 +1,5 @@
 //document.addEventListener('DOMContentLoaded', () => {
-  console.log('index rendered')
+  //console.log('index rendered')
     // remember that the route our real backend would be 'http://localhost:3000/api/v1/products' whereas here we'll make the request to our json-server non-namespaced routes 
     
 
