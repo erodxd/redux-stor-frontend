@@ -3,7 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     //import { renderProductItem } from 'product.js';
 
     const divTag = document.createElement('div')
+    divTag.className = 'product-list'
     document.body.appendChild(divTag)
+    
 
     // createNoteHtml = (product) => {
     //     return  `<li>
