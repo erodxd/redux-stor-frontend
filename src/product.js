@@ -14,6 +14,7 @@ class Product {
         <button data-id=${this.id}>edit</button>
       </h3>
     </li>`;
+    //return `<a class="carousel-item" href="#${this.id}!"><img src="${this.url}"</a>`
   }
     renderUpdateForm() {
       return `

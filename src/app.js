@@ -1,5 +1,5 @@
 class App {
-    attachEventListeners(divTag) {
+    attachDivEventListeners(divTag) {
         divTag.addEventListener('click', event => {
             //console.log('you clicked!');
             const id = parseInt(event.target.dataset.id)
@@ -7,6 +7,7 @@ class App {
             console.log(product)
         });
     }
+    //attachCartUpdateEventListeners()
 }
 
 //console.log('app loaded')
