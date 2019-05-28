@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     //console.log(carouselTag)
 
-    //var elems = document.querySelectorAll('.carousel');
-    //var instances = M.Carousel.init(elems, options);
+    // var elems = document.querySelectorAll('.carousel');
+    // var instances = M.Carousel.init(elems, options);
     
     const app = new App();
     app.attachDivEventListeners(divTag);
@@ -23,14 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
     .then((products) => {
       products.forEach((product) => {
           //console.log(product)
-        //const newProduct = new Product(product)
+        const newProduct = new Product(product)
           //console.log(product.id)
           //divTag.innerHTML += createNoteHtml(product)
-          const createCarouselHTML = (product) => {
-            return `<a class="carousel-item" href="#${product.id}!"><img src="${product.url}"></a>`
-           };
-          carouselTag.innerHTML += createCarouselHTML(product)
-        //carouselTag.innerHTML += newProduct.renderProductItem();
+          //const createCarouselHTML = (product) => {
+            //return `<a class="carousel-item" href="#${product.id}!"><img src="${product.url}"></a>`
+           //};
+          //carouselTag.innerHTML += createCarouselHTML(product)
+        carouselTag.innerHTML += newProduct.renderProductItem();
       });
     });
 
