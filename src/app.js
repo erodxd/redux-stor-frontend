@@ -1,5 +1,7 @@
 class App {
     attachEventListeners() {
-        document.querySelector('#product-list')
+        document.querySelector('#product-list').addEventListener('click', event => {
+            console.log('you clicked the button')
+        })
     }
 }
