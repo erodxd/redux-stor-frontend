@@ -9,7 +9,7 @@ class Product {
         Product.all.push(this);
     }
     renderProductItem() {
-    return `<a class="carousel-item" href="#${this.id}!"><img src="${this.url}"</a>`
+    return `<a class="carousel-item" href="#${this.id}!"><img class="caro-img" src="${this.url}"</a>`
   }
     renderUpdateForm() {
       return `
