@@ -7,7 +7,7 @@ function loadProducts(){
   const endpoint = 'http://localhost:3000/api/v1/products';
   fetch(endpoint)
     .then(res => res.json())
-    .then(data => data.forEach    (putProductOnCarousel))
+    .then(data => data.forEach(putProductOnCarousel))
 }
 
 ////////////////////////////////////

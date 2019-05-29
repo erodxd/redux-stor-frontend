@@ -10,6 +10,7 @@ class Product {
     }
     renderProductItem() {
 <<<<<<< HEAD
+<<<<<<< HEAD
     //   return  `<li>
     //   <h3>${this.name}
     //     <button data-id=${this.id}>edit</button>
@@ -18,6 +19,9 @@ class Product {
 =======
 >>>>>>> brenden-williams
     return `<a class="carousel-item" href="#${this.id}!"><img src="${this.url}"</a>`
+=======
+    return `<a class="carousel-item" href="#${this.id}!"><img class="caro-img" src="${this.url}"</a>`
+>>>>>>> brenden-williams
   }
     renderUpdateForm() {
       return `
