@@ -1,3 +1,5 @@
 class User {
-    constructor(data)
+    constructor(data) {
+        this.email = data.email;
+    }
 }
