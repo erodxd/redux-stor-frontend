@@ -5,7 +5,7 @@ class Wishlist {
         this.product_id = data.product_id;
         this.quantity = data.quantity;
     }
-    renderCartSession() {
+    renderWishListSession() {
         
     }
 }
