@@ -1,10 +1,9 @@
 const carouselTag = document.querySelector('.carousel')
-
+const endpoint = 'http://localhost:3000/api/v1/products/'
 ////////////////////////////////////
 //Loads All Products
 ///////////////////////////////////
 function loadProducts(){
-  const endpoint = 'http://localhost:3000/api/v1/products';
   fetch(endpoint)
     .then(res => res.json())
     .then(data => data.forEach(putProductOnCarousel))
@@ -15,12 +14,22 @@ function loadProducts(){
 ///////////////////////////////////
 function putProductOnCarousel(product){
   const newProduct = new Product(product)
-  carouselTag.innerHTML += (newProduct.renderProductItem())
+  newProductTag = newProduct.renderProductItem()
+  carouselTag.append(newProductTag)
+
+  let imgTag = document.querySelector(`.caro-img-${product.id}`)
+  imgTag.addEventListener("click",()=>{
+    productShowPage(newProduct)
+  })
 
   let elems = document.querySelectorAll('.carousel');
   let instances = M.Carousel.init(elems);
+
 }
 
+function productShowPage(product){
+  product.renderProductDetails()
+}
 ///////////////////////////////////
 //Load Scripts For Site
 ///////////////////////////////////
