@@ -17,6 +17,7 @@ class Product {
     aTag.appendChild(img)
     return aTag
 }
+
 renderProductDetails(){
   let div = document.querySelector(".show-panel")
   div.innerHTML = ""
@@ -33,10 +34,7 @@ renderProductDetails(){
   var elems = document.querySelectorAll('.materialboxed');
   var instances = M.Materialbox.init(elems);
 }
-  renderUpdateForm() {
-    return `
-    <form`
-  }
+
 static findById(id) {
   return this.all.find(product => product.id === id);
 }
