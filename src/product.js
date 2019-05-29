@@ -9,11 +9,20 @@ class Product {
         Product.all.push(this);
     }
     renderProductItem() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 655b497379df7a8d13f11811c028fc19b1cbbc0b
     //   return  `<li>
     //   <h3>${this.name}
     //     <button data-id=${this.id}>edit</button>
     //   </h3>
     // </li>`;
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> brenden-williams
+>>>>>>> 655b497379df7a8d13f11811c028fc19b1cbbc0b
     return `<a class="carousel-item" href="#${this.id}!"><img src="${this.url}"</a>`
   }
     renderUpdateForm() {
