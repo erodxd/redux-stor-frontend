@@ -1,6 +1,6 @@
 const carouselTag = document.querySelector('.carousel')
 const endpoint = 'http://localhost:3000/api/v1/products/'
-const cardTag = document.querySelector('.card')
+const cardRowDiv = document.querySelector('.row')
 ////////////////////////////////////
 //Loads All Products
 ///////////////////////////////////
@@ -13,7 +13,7 @@ function loadProducts(){
 function loadProductCards(){
   fetch(endpoint)
     .then(res => res.json())
-    .then(data => data.forEach(productCard))
+    .then(data => data.forEach(putProductOnCard))
 }
 ////////////////////////////////////
 //Slap The Images On the Carousel
@@ -25,6 +25,7 @@ function putProductOnCarousel(product){
 
   let imgTag = document.querySelector(`.caro-img-${product.id}`)
   
+
   imgTag.addEventListener("click",()=>{
     productShowPage(newProduct)
   })
@@ -38,15 +39,29 @@ function productShowPage(product){
   product.renderProductDetails()
 }
 
-function productCard(product){
-  const newProduct = new Product(product)
-  newProductTag = newProduct.renderProductItem()
-  cardTag.append(newProductTag)
+function putProductOnCard(product){
+  // const newProduct = new Product(product)
+  // newProductTag = newProduct.renderProductCardDetails()
+  // cardTag.append(newProductTag)
 
-  let imgTag = document.querySelector(`.caro-img-${product.id}`)
+  // let imgTag = document.querySelector(`.caro-img-${product.id}`)
   
-  imgTag.addEventListener("click",()=>{
-    productShowPage(newProduct)
+  
+  // imgTag.addEventListener("click",()=>{
+  //   productShowPage(newProduct)
+  // })
+  const newProduct = new Product(product)
+  newProductTag = newProduct.renderIndivProductCardDetails()
+  cardRowDiv.appendChild(newProductTag)  
+
+  let rowTag = document.querySelector('.row')
+  rowTag.addEventListener('click', (event) => {
+    console.log('you clicked the image!')
+    if (event.target.className === 'card-image') {
+      console.log('you clicked')
+      productShowPage(newProduct)
+    }
+    
   })
 }
 

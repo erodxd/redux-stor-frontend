@@ -31,8 +31,27 @@ renderProductDetails(){
     <button class="btn striped-shadow white"><span>To Cart</span></button>
   </div>`
   div.appendChild(innerDiv)
+  
+
   var elems = document.querySelectorAll('.materialboxed');
   var instances = M.Materialbox.init(elems);
+}
+
+renderIndivProductCardDetails(){
+  const div = document.createElement("div")
+  div.className = "col s4 m4"
+  div.innerHTML = `<div class="card">
+  <div class="card-image">
+    <img src="${this.url}">
+  </div>
+  <div class="card-content">
+    <h4>$${this.price}</h4>
+  </div>
+  <div class="card-action">
+    <h5>${this.name}</h5>
+  </div>
+</div>`
+  return div
 }
 
 static findById(id) {
