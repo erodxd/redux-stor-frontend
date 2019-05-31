@@ -74,23 +74,20 @@ function productCards(product){
 ////////////////////////////////////
 //Slap The Images On the Cards
 ///////////////////////////////////
-<<<<<<< HEAD
 
-=======
->>>>>>> 31c45ad274c16da769618d2ef7ef18a767dd023e
 function putProductOnCard(product){
   const newProduct = new Product(product)
   newProductTag = newProduct.renderIndivProductCardDetails()
   cardRowDiv.appendChild(newProductTag)  
 }
 
-function putCategorieOnCard(product){
-  const newProduct = new Product(product)
-  newProductTag = newProduct.renderIndivProductCardDetails()
-   cardRowDiv.innerHTML = ""
-   //debugger
-   cardRowDiv.appendChild(newProductTag)
-}
+// function putCategorieOnCard(product){
+//   const newProduct = new Product(product)
+//   newProductTag = newProduct.renderIndivProductCardDetails()
+//    cardRowDiv.innerHTML = ""
+//    //debugger
+//    cardRowDiv.appendChild(newProductTag)
+// }
 
 let rowTag = document.querySelector('.row')
   rowTag.addEventListener('click', (event) => {
@@ -116,9 +113,9 @@ function filterProduct(data){
   //console.log(shirts)
   shirts.forEach((shirt) => {
     console.log(shirt)
-    cardRowDiv.innerHTML += ""
-    debugger
-    cardRowDiv.innerHTML = renderIndivProductCardDetails(shirt)
+    cardRowDiv.innerHTML = ""
+    //debugger
+    cardRowDiv.innerHTML += renderIndivProductCardDetails(shirt)
   })
 }
 
