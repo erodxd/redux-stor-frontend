@@ -69,8 +69,6 @@ function productShowPage(product){
 ////////////////////////////////////
 //Slap The Images On the Cards
 ///////////////////////////////////
-
-
 function putProductOnCard(product){
   const newProduct = new Product(product)
   newProductTag = newProduct.renderIndivProductCardDetails()
