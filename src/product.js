@@ -7,6 +7,7 @@ class Product {
       this.url = data.url;
       Product.all.push(this);
   }
+
   renderProductItem() {
     let aTag = document.createElement("a")
     aTag.className = "carousel-item"
@@ -27,9 +28,18 @@ renderProductDetails(){
     <h3>${this.name}</h3>
     <h5>Category: ${this.categorie}</h5>
     <h5>$${this.price}</h5>
-    <button class="btn striped-shadow white"><span>To Cart</span></button>
+    <form id="purchase-form">
+    Quantity:<input type="number" name="quantity" class="quantity-form" min="1" max="99">
+    <button class="btn cart-button" type="submit"><span>To Cart</span></button>
+    <button class="btn wish-button"><span>WishList</span></button>
+    </form>
   </div>`
   div.appendChild(innerDiv)
+
+  let cartButton = document.querySelector(".cart-button")
+  cartButton.addEventListener("click", ()=>{
+     logInUser(this)
+  })
   var elems = document.querySelectorAll('.materialboxed');
   var instances = M.Materialbox.init(elems);
 }
