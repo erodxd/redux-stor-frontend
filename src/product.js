@@ -49,10 +49,10 @@ renderProductDetails(){
 
 renderIndivProductCardDetails(){
   const div = document.createElement("div")
-  div.className = "col s4 m4"
-  div.innerHTML = `<div class="card">
+  div.className = "col s4 m4 "
+  div.innerHTML = `<div class="card" data-categorie="${this.categorie}">
   <div class="card-image">
-    <img class="bla" data-id="${this.id}" src="${this.url}">
+    <img class="product-image" data-id="${this.id}" src="${this.url}">
   </div>
   <div class="card-content">
     <h4>$${this.price}</h4>
@@ -62,6 +62,10 @@ renderIndivProductCardDetails(){
   </div>
 </div>`
   return div
+}
+
+static filterByCategory(categorie) {
+  return this.all.filter(product => product.categorie === categorie)
 }
 
 static findById(id) {

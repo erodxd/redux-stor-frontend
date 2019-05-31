@@ -1,6 +1,7 @@
 const carouselTag = document.querySelector('.carousel')
 const endpoint = 'http://localhost:3000/api/v1/products/'
 const cardRowDiv = document.querySelector('.row')
+const categoryTag = document.querySelector('.categories')
 // let  user = {
 //   id: 7,
 //   email: "yaBoy@gmail.com"
@@ -66,10 +67,13 @@ function productShowPage(product){
   product.renderProductDetails()
 }
 
+function productCards(product){
+  product.renderIndivProductCardDetails()
+}
+
 ////////////////////////////////////
 //Slap The Images On the Cards
 ///////////////////////////////////
-
 
 function putProductOnCard(product){
   const newProduct = new Product(product)
@@ -77,16 +81,59 @@ function putProductOnCard(product){
   cardRowDiv.appendChild(newProductTag)  
 }
 
+function putCategorieOnCard(product){
+  const newProduct = new Product(product)
+  newProductTag = newProduct.renderIndivProductCardDetails()
+   cardRowDiv.innerHTML = ""
+   //debugger
+   cardRowDiv.appendChild(newProductTag)
+}
+
 let rowTag = document.querySelector('.row')
   rowTag.addEventListener('click', (event) => {
-    if (event.target.className === 'bla') {
-      //debugger
+    if (event.target.className === 'product-image') {
      return productShowPage(Product.findById(parseInt(event.target.dataset.id)))
     }  
-    
   })
 
 
+////////////////////////////////////
+//Show product by category
+///////////////////////////////////
+categoryTag.addEventListener('click', (event) => {
+  if (event.target.className === 'shirt') {
+      fetch(endpoint)
+      .then(res => res.json())
+      .then(data => filterProduct(data))
+  }
+})
+
+function filterProduct(data){
+  let shirts = data.filter(data => data.categorie === 'shirt')
+  //console.log(shirts)
+  shirts.forEach((shirt) => {
+    console.log(shirt)
+    cardRowDiv.innerHTML += ""
+    debugger
+    cardRowDiv.innerHTML = renderIndivProductCardDetails(shirt)
+  })
+}
+
+function renderIndivProductCardDetails(shirt){
+  const div = document.createElement("div")
+  div.className = "col s4 m4 "
+  return div.innerHTML = `<div class="card" data-categorie="${shirt.categorie}">
+  <div class="card-image">
+    <img class="product-image" data-id="${shirt.id}" src="${shirt.url}">
+  </div>
+  <div class="card-content">
+    <h4>$${shirt.price}</h4>
+  </div>
+  <div class="card-action">
+    <h5>${shirt.name}</h5>
+  </div>
+</div>`
+};
 //////////////////////////////////////
 //Log In User
 ///////////////////////////////////////

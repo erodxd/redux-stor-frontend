@@ -278,9 +278,10 @@ img {
   }
 
   .card {
+	display: grid;
 	width: 97%;
 	height: 97%;
-	position: relative;
+	
   }
 #purchase-form{
   width:35%;

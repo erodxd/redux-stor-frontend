@@ -92,6 +92,30 @@ class Cart {
         </div>`
         showPanel.appendChild(div)
     }
+    
+    makeAPayment(cart){
+        const cartPayload = {
+            id:this.id,
+            user_id:this.user_id,
+            product_id:this.product_id,
+            quantity:this.quantity,
+            paying:true
+        }
+        console.log(cartPayload)
+        fetch(cartEnpoint+this.id,{
+            method:"DELETE",
+            header:{
+                "Content-Type":"application/json",
+                "Accept":"application/json"
+            },
+            body:JSON.stringify(cartPayload)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            
+        })
+}
 
 }
 
