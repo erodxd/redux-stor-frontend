@@ -63,13 +63,11 @@ class Cart {
           </div>`
         const showPanel = document.querySelector(".show-panel")
         showPanel.appendChild(cartCard)
-        console.log(this.total)
-        console.log(this.totalPrice)
         this.totalPrice += this.total
-        this.renderCheckout(this.totalPrice)
+        this.renderCheckout(this)
     }
 
-    renderCheckout(){
+    renderCheckout(cart){
         const findDiv = document.getElementById("checkout-div")
         if(findDiv){
             findDiv.remove()
@@ -86,11 +84,16 @@ class Cart {
                 <a class="refresh"><i class="fa fa-refresh"></i></a>
             </div>
             <div class="complete">
-                <a class="button" href="#">Checkout</a>
+                <a class="button button-${this.id}">Checkout</a>
             </div>
         </div>
         </div>`
         showPanel.appendChild(div)
+
+        const paymentButton = document.querySelector(`.button-${this.id}`)
+        paymentButton.addEventListener("click",()=>{
+            this.makeAPayment(this)
+        })
     }
     
     makeAPayment(cart){
@@ -116,6 +119,32 @@ class Cart {
             
         })
 }
+
+    makeAPayment(cart){
+        const cartPayload = {
+            id:this.id,
+            user_id:this.user_id,
+            product_id:this.product_id,
+            quantity:this.quantity,
+            paying:true
+        }
+        console.log(cartPayload)
+        fetch(cartEnpoint+this.id,{
+            method:"DELETE",
+            header:{
+                "Content-Type":"application/json",
+                "Accept":"application/json"
+            },
+            body:JSON.stringify(cartPayload)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            
+        })
+    }
+
+
 
 }
 

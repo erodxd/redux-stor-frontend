@@ -74,7 +74,10 @@ function productCards(product){
 ////////////////////////////////////
 //Slap The Images On the Cards
 ///////////////////////////////////
+<<<<<<< HEAD
 
+=======
+>>>>>>> 31c45ad274c16da769618d2ef7ef18a767dd023e
 function putProductOnCard(product){
   const newProduct = new Product(product)
   newProductTag = newProduct.renderIndivProductCardDetails()
