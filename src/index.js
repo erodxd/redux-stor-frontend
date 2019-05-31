@@ -40,16 +40,6 @@ function productShowPage(product){
 }
 
 function putProductOnCard(product){
-  // const newProduct = new Product(product)
-  // newProductTag = newProduct.renderProductCardDetails()
-  // cardTag.append(newProductTag)
-
-  // let imgTag = document.querySelector(`.caro-img-${product.id}`)
-  
-  
-  // imgTag.addEventListener("click",()=>{
-  //   productShowPage(newProduct)
-  // })
   const newProduct = new Product(product)
   newProductTag = newProduct.renderIndivProductCardDetails()
   cardRowDiv.appendChild(newProductTag)  

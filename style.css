@@ -263,6 +263,7 @@ img {
 	margin:5px 0px;
   }
 
-  #card {
-	  
+  .card {
+	width: 50%;
+	height: 50%;
   }
