@@ -105,7 +105,23 @@ categoryTag.addEventListener('click', (event) => {
       fetch(endpoint)
       .then(res => res.json())
       .then(data => filterProduct(data))
-  }
+  } else if (event.target.className === 'dress') {
+      fetch(endpoint)
+      .then(res => res.json())
+      .then(data => filterProduct(data))
+  } else if (event.target.className === 'pants') {
+    fetch(endpoint)
+    .then(res => res.json())
+    .then(data => filterProduct(data))
+} else if (event.target.className === 'jacket') {
+  fetch(endpoint)
+  .then(res => res.json())
+  .then(data => filterProduct(data))
+} else if (event.target.className === 'shorts') {
+  fetch(endpoint)
+  .then(res => res.json())
+  .then(data => filterProduct(data))
+}
 })
 
 function filterProduct(data){
@@ -116,7 +132,43 @@ function filterProduct(data){
     cardRowDiv.innerHTML = ""
     //debugger
     cardRowDiv.innerHTML += renderIndivProductCardDetails(shirt)
-  })
+  });
+
+  let dresses = data.filter(data => data.categorie === 'dress')
+  //console.log(shirts)
+  dresses.forEach((dress) => {
+    //console.log(shirt)
+    cardRowDiv.innerHTML = ""
+    //debugger
+    cardRowDiv.innerHTML += renderDressProductCardDetails(dress)
+  });
+
+  let shorts = data.filter(data => data.categorie === 'shorts')
+  //console.log(shirts)
+  shorts.forEach((short) => {
+    //console.log(shirt)
+    cardRowDiv.innerHTML = ""
+    //debugger
+    cardRowDiv.innerHTML += renderShortProductCardDetails(short)
+  });
+
+  let jackets = data.filter(data => data.categorie === 'jacket')
+  //console.log(shirts)
+  jackets.forEach((jacket) => {
+    //console.log(shirt)
+    cardRowDiv.innerHTML = ""
+    //debugger
+    cardRowDiv.innerHTML += renderJacketProductCardDetails(jacket)
+  });
+
+  let pants = data.filter(data => data.categorie === 'pants')
+  //console.log(shirts)
+  pants.forEach((pant) => {
+    //console.log(shirt)
+    cardRowDiv.innerHTML = ""
+    //debugger
+    cardRowDiv.innerHTML += renderPantProductCardDetails(pant)
+  });
 }
 
 function renderIndivProductCardDetails(shirt){
@@ -131,6 +183,70 @@ function renderIndivProductCardDetails(shirt){
   </div>
   <div class="card-action">
     <h5>${shirt.name}</h5>
+  </div>
+</div>`
+};
+
+function renderDressProductCardDetails(dress){
+  const div = document.createElement("div")
+  div.className = "col s4 m4 "
+  return div.innerHTML = `<div class="card" data-categorie="${dress.categorie}">
+  <div class="card-image">
+    <img class="product-image" data-id="${dress.id}" src="${dress.url}">
+  </div>
+  <div class="card-content">
+    <h4>$${dress.price}</h4>
+  </div>
+  <div class="card-action">
+    <h5>${dress.name}</h5>
+  </div>
+</div>`
+};
+
+function renderPantProductCardDetails(pant){
+  const div = document.createElement("div")
+  div.className = "col s4 m4 "
+  return div.innerHTML = `<div class="card" data-categorie="${pant.categorie}">
+  <div class="card-image">
+    <img class="product-image" data-id="${pant.id}" src="${pant.url}">
+  </div>
+  <div class="card-content">
+    <h4>$${pant.price}</h4>
+  </div>
+  <div class="card-action">
+    <h5>${pant.name}</h5>
+  </div>
+</div>`
+};
+
+function renderShortProductCardDetails(short){
+  const div = document.createElement("div")
+  div.className = "col s4 m4 "
+  return div.innerHTML = `<div class="card" data-categorie="${short.categorie}">
+  <div class="card-image">
+    <img class="product-image" data-id="${short.id}" src="${short.url}">
+  </div>
+  <div class="card-content">
+    <h4>$${short.price}</h4>
+  </div>
+  <div class="card-action">
+    <h5>${short.name}</h5>
+  </div>
+</div>`
+};
+
+function renderJacketProductCardDetails(jacket){
+  const div = document.createElement("div")
+  div.className = "col s4 m4 "
+  return div.innerHTML = `<div class="card" data-categorie="${jacket.categorie}">
+  <div class="card-image">
+    <img class="product-image" data-id="${jacket.id}" src="${jacket.url}">
+  </div>
+  <div class="card-content">
+    <h4>$${jacket.price}</h4>
+  </div>
+  <div class="card-action">
+    <h5>${jacket.name}</h5>
   </div>
 </div>`
 };
@@ -173,7 +289,8 @@ function createCart(user,product){
     console.log(data)
     let newCartItem = new Cart(data)
     newCartItem.renderCart(user, product)
-  })
+    return swal('You bought fresh swag!', 'success')
+  }) 
 }
 
 ///////////////////////////////////////
